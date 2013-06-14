@@ -21,9 +21,9 @@ in order for it to work properly on your setup.
 Running `project.py`:
 
 <pre class="console">
-  C:\>python project.py -h
+  C:\>python project.py --help
 
-  usage: project.py [-h] -n NAME [-p PATH] [-v]
+  usage: project.py [-h] -n NAME [-p PATH] [--no-sb2] [-v]
 
   Create a Python project with Sublime Text 2.
   --------------------------------------------
@@ -34,23 +34,47 @@ Running `project.py`:
     -h, --help            show this help message and exit
     -n NAME, --name NAME  project name (required)
     -p PATH, --path PATH  project path, default .
+    --no-sb2              do not open Sublime Text 2
     -v, --verbose
+</pre>
+
+After the project has been setup, you will see the following output:
+
+Windows:
+
+<pre class="console">
+  {PROJECT} has been created.
+  To activate the virtualenv, use the following:
+
+  > cd {PROJECT}
+  > .\Scripts\activate
+</pre>
+
+*Nix:
+
+<pre class="console">
+  {PROJECT} has been created.
+  To activate the virtualenv, use the following:
+
+  > cd {PROJECT}
+  > source bin/activate
 </pre>
 
 Upon completion of creating the virtual environment and the .sublime-project
 file, Sublime Text 2 will open a new window with the project only showing the
-`src` folder, which contains the `{APPNAME}.sublime-project
+`src` folder, which contains the `{PROJECT}.sublime-project
 
 Project structure on Windows:
 
 <pre class="console">
-  {APPNAME}/
+  {PROJECT}/
   |-- Include/ (set by virutalenv.exe)
   |-- Lib/ (set by virtualenv.exe)
   |-- Scripts/ (set by virtualenv.exe)
   |-- src/
-  |   |-- {APPNAME}.sublime-project
-  |   `-- {APPNAME}.sublime-workspace (hidden by .sublime-project)
+  |   |-- __init__.py
+  |   |-- {PROJECT}.sublime-project
+  |   `-- {PROJECT}.sublime-workspace (hidden by .sublime-project)
 </pre>
 
 [virtualenv]: http://www.virtualenv.org/en/latest/

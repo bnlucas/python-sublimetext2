@@ -69,6 +69,8 @@ parser.add_argument('-n', '--name', type=str, dest='name',
 	help='project name (required)', required=True)
 parser.add_argument('-p', '--path', type=str, dest='path',
 	help='project path, default .', default='.')
+parser.add_argument('--no-sb2', dest='sublime', action='store_true',
+	help='do not open Sublime Text 2', default=False)
 parser.add_argument('-v', '--verbose', dest='verbose', action='store_true')
 
 args = parser.parse_args(sys.argv[1:])
@@ -104,6 +106,11 @@ def sublime_project(project_path):
 	with open(st_project_file, 'wb') as f:
 		if args.verbose: print 'Writing', st_project_file
 		f.write(p)
+
+	init_file = os.path.join(src_path, '__init__.py')
+	with open(init_file, 'wb') as f:
+		if args.verbose: print 'Writing', init_file
+		f.write('')
 
 	return st_project_file
 
@@ -143,9 +150,19 @@ def main():
 
 	project_file = sublime_project(project_path)
 
-	subl = Thread(target=open_sublime_text, args=[project_file]).start()
+	if not args.sublime:
+		subl = Thread(target=open_sublime_text, args=[project_file]).start()
 
 	print args.name, 'has been created.'
+	print 'To activate the virtualenv, use the following:'
+	print
+
+	if 'win' in sys.platform:
+		print '> cd', args.name
+		print '> .\\Scripts\\activate'
+	else:
+		print '$ cd', args.name
+		print '$ source bin/activate'
 
 
 if __name__ == '__main__':
