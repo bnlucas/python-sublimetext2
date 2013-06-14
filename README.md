@@ -71,7 +71,7 @@ Project structure on Windows:
   |-- Include/ (set by virutalenv.exe)
   |-- Lib/ (set by virtualenv.exe)
   |-- Scripts/ (set by virtualenv.exe)
-  |-- src/
+  |-- {PROJECT}/
   |   |-- __init__.py
   |   |-- {PROJECT}.sublime-project
   |   `-- {PROJECT}.sublime-workspace (hidden by .sublime-project)

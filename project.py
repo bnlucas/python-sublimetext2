@@ -93,7 +93,7 @@ def format_path(path):
 
 
 def sublime_project(project_path):
-	src_path = os.path.join(project_path, 'src')
+	src_path = os.path.join(project_path, args.name)
 	st_project = '.'.join([args.name.lower(), 'sublime-project'])
 	st_project_file = os.path.join(src_path, st_project)
 
