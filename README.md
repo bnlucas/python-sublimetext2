@@ -62,9 +62,11 @@ Windows:
 
 Upon completion of creating the virtual environment and the .sublime-project
 file, Sublime Text 2 will open a new window with the project only showing the
-`src` folder, which contains the `{PROJECT}.sublime-project
+`src` folder, which contains the `{PROJECT}.sublime-project`
 
-Project structure on Windows:
+Project structure:
+
+Windows:
 
 <pre class="console">
   {PROJECT}/
@@ -72,9 +74,22 @@ Project structure on Windows:
   |-- Lib/ (set by virtualenv.exe)
   |-- Scripts/ (set by virtualenv.exe)
   |-- {PROJECT}/
-  |   |-- __init__.py
-  |   |-- {PROJECT}.sublime-project
-  |   `-- {PROJECT}.sublime-workspace (hidden by .sublime-project)
+  |   `-- __init__.py
+  |-- {PROJECT}.sublime-project
+  `-- {PROJECT}.sublime-workspace
+</pre>
+
+*Nix:
+
+<pre class="console">
+  {PROJECT}/
+  |-- bin/ (set by virutalenv.exe)
+  |-- include/ (set by virtualenv.exe)
+  |-- lib/ (set by virtualenv.exe)
+  |-- {PROJECT}/
+  |   `-- __init__.py
+  |-- {PROJECT}.sublime-project
+  `-- {PROJECT}.sublime-workspace
 </pre>
 
 [virtualenv]: http://www.virtualenv.org/en/latest/
