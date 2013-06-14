@@ -62,7 +62,7 @@ Windows:
 
 Upon completion of creating the virtual environment and the .sublime-project
 file, Sublime Text 2 will open a new window with the project only showing the
-`src` folder, which contains the `{PROJECT}.sublime-project`
+`{PROJECT}/{PROJECT}` folder.
 
 Project structure:
 
