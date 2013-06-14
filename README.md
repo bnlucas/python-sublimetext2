@@ -56,8 +56,8 @@ Windows:
   {PROJECT} has been created.
   To activate the virtualenv, use the following:
 
-  > cd {PROJECT}
-  > source bin/activate
+  $ cd {PROJECT}
+  $ source bin/activate
 </pre>
 
 Upon completion of creating the virtual environment and the .sublime-project
