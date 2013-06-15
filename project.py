@@ -14,7 +14,7 @@ VIRTUALENV  = 'C:\\Python27\\Scripts\\virtualenv.exe'
 SUBLIMETEXT = 'subl'
 
 
-VCMD = '{venv} {dest}'
+VCMD = '{venv} {dest} --quiet'
 SCMD = '{subl} --project {project}'
 
 
@@ -141,9 +141,8 @@ def main():
 			exit()
 	
 	cmd = VCMD.format(venv=VIRTUALENV, dest=project_path)
-	cmd = ' '.join([cmd, '--quiet'])
 	if args.verbose:
-		cmd = ' '.join([cmd, '--verbose'])
+		cmd = cmd.replace('--quiet', '--verbose')
 	venv = Thread(target=os.system, args=[cmd])
 	venv.start()
 	venv.join()
